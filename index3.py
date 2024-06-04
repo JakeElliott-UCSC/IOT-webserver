@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify,requests
 
 app = Flask(__name__)
 
@@ -77,7 +77,7 @@ def report_weather():
     global wtr_weather
     global esp_weather
     global city
-    
+
     wtr_weather = get_temperature(city)
 
     return jsonify({"Local Temp":esp_weather,"{city} Temp":wtr_weather}), 200
