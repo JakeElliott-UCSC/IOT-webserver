@@ -12,7 +12,9 @@ def get_temperature(city=""):
     url = f"http://wttr.in/{city}?format=%t"
     response = requests.get(url)
     if response.status_code == 200:
-        return response.text.strip()
+        text = response.text.strip()
+        index = text.index("+")
+        return text[index+1:index+2]
     else:
         return "Error: Unable to fetch the temperature"
 
@@ -81,7 +83,7 @@ def report_weather():
 
     wtr_weather = get_temperature(city)
 
-    return jsonify({"Local Temp":esp_weather,"{city} Temp":wtr_weather}), 200
+    return jsonify({"Local Temp":esp_weather, city + " Temp" : wtr_weather}), 200
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
