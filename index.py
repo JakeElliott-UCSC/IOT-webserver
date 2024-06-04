@@ -13,7 +13,7 @@ def receive_data():
     global library
     data = request.json
     for key in data:
-        library.update("{key:data.get(key)}")
+        library.update({key:data.get(key)})
     return jsonify({"message": "Data received", "data": data}), 200
 
 @app.route('/data', methods=['GET'])
