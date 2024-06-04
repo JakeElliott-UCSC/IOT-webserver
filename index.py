@@ -50,6 +50,8 @@ def receive_weather():
     data = request.json
 
     esp_weather = int(data.get("weather"))
+
+    print("\n\n\n\n ESP WEATHER: " + esp_weather + "\n\n\n\n")
     
     return jsonify({"message": "Data received", "data": esp_weather}), 200
 
