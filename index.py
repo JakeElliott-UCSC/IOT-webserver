@@ -53,5 +53,13 @@ def receive_weather():
     
     return jsonify({"message": "Data received", "data": esp_weather}), 200
 
+# GET
+# WTHR ===================================================================
+@app.route('/data', methods=['GET'])
+def report_weather():
+    global wtr_weather
+    global esp_weather
+    return jsonify({"weather":esp_weather}), 200
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
