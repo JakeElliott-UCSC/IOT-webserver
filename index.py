@@ -17,7 +17,7 @@ def receive_data():
     return jsonify({"message": "Data received", "data": data}), 200
 
 @app.route('/data', methods=['GET'])
-def receive_data():
+def report_data():
     return jsonify(library), 200
 
 @app.route('/info', methods=['GET'])
