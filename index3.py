@@ -14,7 +14,7 @@ def get_temperature(city=""):
     if response.status_code == 200:
         text = response.text.strip()
         index = text.index("+")
-        return text[index+1:index+2]
+        return text[index+1:index+3]
     else:
         return "Error: Unable to fetch the temperature"
 
