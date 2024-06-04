@@ -49,7 +49,7 @@ def receive_weather():
 
     data = request.json
 
-    esp_weather = request.get("weather")
+    esp_weather = int(request.get("weather"))
     
     return jsonify({"message": "Data received", "data": esp_weather}), 200
 
