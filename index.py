@@ -42,7 +42,7 @@ def get_info():
 # POST
 # WTHR ===================================================================
 # Recieve weather from esp
-@app.route('/data', methods=['POST'])
+@app.route('/weather', methods=['POST'])
 def receive_weather():
     global wtr_weather
     global esp_weather
@@ -55,7 +55,7 @@ def receive_weather():
 
 # GET
 # WTHR ===================================================================
-@app.route('/data', methods=['GET'])
+@app.route('/weather', methods=['GET'])
 def report_weather():
     global wtr_weather
     global esp_weather
