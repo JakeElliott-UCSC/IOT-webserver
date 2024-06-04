@@ -49,7 +49,7 @@ def receive_weather():
 
     data = request.json
 
-    esp_weather = int(request.get("weather"))
+    esp_weather = int(data.get("weather"))
     
     return jsonify({"message": "Data received", "data": esp_weather}), 200
 
@@ -59,8 +59,7 @@ def receive_weather():
 def report_weather():
     global wtr_weather
     global esp_weather
-    return esp_weather, 200
-    #return jsonify({"weather":esp_weather}), 200
+    return jsonify({"weather":esp_weather}), 200
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
