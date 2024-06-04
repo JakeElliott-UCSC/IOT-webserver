@@ -2,14 +2,23 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
+library = {}
+
 @app.route('/', methods=['GET'])
 def home():
-    return "Welcome to the simple web server!"
+    return "Welcome to the simple web server!\n"
 
 @app.route('/data', methods=['POST'])
 def receive_data():
+    global library
     data = request.json
+    for key in data:
+        library.update("{key:data.get(key)}")
     return jsonify({"message": "Data received", "data": data}), 200
+
+@app.route('/data', methods=['GET'])
+def receive_data():
+    return jsonify(library), 200
 
 @app.route('/info', methods=['GET'])
 def get_info():
