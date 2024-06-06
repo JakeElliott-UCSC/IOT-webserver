@@ -105,7 +105,7 @@ def printMorse(message):
                 time.sleep(time_delta)
             if j == ' ':
                 led.off()
-                time.sleep(time_delta*10)
+                time.sleep(time_delta*15)
         print(' ',end='',flush=True)
     print()
 
