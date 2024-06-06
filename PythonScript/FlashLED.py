@@ -93,7 +93,7 @@ def printMorse(message):
                 led.off()
                 time.sleep(time_delta)
                 led.on()
-                time.sleep(time_delta*1.2)
+                time.sleep(time_delta)
                 led.off()
                 time.sleep(time_delta*8)
             if j == '-':
@@ -102,7 +102,7 @@ def printMorse(message):
                 led.on()
                 time.sleep(time_delta*8)
                 led.off()
-                time.sleep(time_delta)
+                time.sleep(time_delta*3)
             if j == ' ':
                 led.off()
                 time.sleep(time_delta*10)
